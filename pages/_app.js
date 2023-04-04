@@ -8,6 +8,14 @@ export default function App({ Component, pageProps }) {
 
   const trafficColor = ["red", "yellow", "green"];
 
+  //Win Condition:
+  const result =
+    color1 === color2 && color1 === color3 && color1 !== "lightgrey"
+      ? "won"
+      : "lost";
+
+  const resultText = `You ${result}`;
+
   function randomNumber() {
     return Math.floor(Math.random() * trafficColor.length);
   }
@@ -18,6 +26,16 @@ export default function App({ Component, pageProps }) {
     setColor3(trafficColor[randomNumber()]);
   }
 
+  //Win Condition:
+  /*   function checkVictory() {
+    if (
+      color1.currentColor === color2.currentColor &&
+      color1.currentColor === color3.currentColor &&
+      color1.currentColor !== "lightgrey"
+    ) {
+    }
+  } */
+
   return (
     <>
       <Component
@@ -26,6 +44,8 @@ export default function App({ Component, pageProps }) {
         color2={color2}
         color3={color3}
         onSpin={handleSpin}
+        result={result}
+        resultText={resultText}
       />
     </>
   );
