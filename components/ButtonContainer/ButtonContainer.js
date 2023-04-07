@@ -12,10 +12,17 @@ const StyledButton = styled.button`
   height: 25px;
 `;
 
-export default function ButtonContainer({ onSpin }) {
+export default function ButtonContainer({ onSpin, counting }) {
   return (
     <StyledButtonContainer>
-      <StyledButton onClick={onSpin}>Start</StyledButton>
+      <StyledButton
+        onClick={() => {
+          onSpin();
+          counting();
+        }}
+      >
+        Start
+      </StyledButton>
     </StyledButtonContainer>
   );
 }
