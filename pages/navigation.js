@@ -12,7 +12,7 @@ export default function Navigation({ clearStorage }) {
     defaultValue: [],
   });
   const showStorage = storage.map((array) => (
-    <ul>
+    <ul key={list}>
       <li>{array} tries</li>
     </ul>
   ));
