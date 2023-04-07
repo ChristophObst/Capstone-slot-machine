@@ -12,6 +12,12 @@ const StyledButton = styled.button`
   height: 25px;
 `;
 
+//how to utilze this outsourced code, prop drilling not working!?
+/* const handleSpin = () => {
+  onSpin();
+  counting();
+}; */
+
 export default function ButtonContainer({ onSpin, counting }) {
   return (
     <StyledButtonContainer>

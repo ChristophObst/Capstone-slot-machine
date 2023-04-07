@@ -7,14 +7,14 @@ const ClearButton = styled.button`
   height: 25px;
 `;
 
-export default function Navigation({ clearStorage }) {
+export default function Navigation({ clearStorage, list }) {
   const [storage, setStorage] = useLocalStorageState("storage", {
     defaultValue: [],
   });
   const showStorage = storage.map((array) => (
-    <ul key={list}>
+    <div key={list}>
       <li>{array} tries</li>
-    </ul>
+    </div>
   ));
 
   return (

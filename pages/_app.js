@@ -16,11 +16,11 @@ export default function App({ Component, pageProps }) {
   //"Counting":
   const [trys, setTrys] = useState(0);
 
+  const winEquation =
+    color1 === color2 && color1 === color3 && color1 !== "lightgrey";
+
   //Win Condition:
-  const result =
-    color1 === color2 && color1 === color3 && color1 !== "lightgrey"
-      ? "won"
-      : "lost";
+  const result = winEquation ? "won" : "lost";
 
   console.log(storage[0]);
 
@@ -45,7 +45,7 @@ export default function App({ Component, pageProps }) {
 
   // checkVictory and reset game:
   function checkVictory() {
-    if (color1 === color2 && color1 === color3 && color1 !== "lightgrey") {
+    if (winEquation) {
       if (trys > 0) {
         setColor1("lightgrey");
         setColor2("lightgrey");
