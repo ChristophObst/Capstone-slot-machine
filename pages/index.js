@@ -30,18 +30,46 @@ export default function HomePage({
   trys,
   records,
   storageText,
+  onIsActive1,
+  onIsActive2,
+  onIsActive3,
+  amountprint1,
+  amountprint2,
+  amountprint3,
+  showFruit1,
+  showFruit2,
+  showFruit3,
 }) {
   return (
     <div>
       <HeadlineContainer>
         <h1>Slot Machine</h1>
       </HeadlineContainer>
-      <WheelContainer color1={color1} color2={color2} color3={color3} />
+      <WheelContainer
+        color1={color1}
+        color2={color2}
+        color3={color3}
+        amountprint1={amountprint1}
+        amountprint2={amountprint2}
+        amountprint3={amountprint3}
+        showFruit1={showFruit1}
+        showFruit2={showFruit2}
+        showFruit3={showFruit3}
+        onIsActive1={onIsActive1}
+        onIsActive2={onIsActive2}
+        onIsActive3={onIsActive3}
+      />
       <ResultContainer>
         <p>{resultText}</p>
         <p>{trys}</p>
       </ResultContainer>
-      <ButtonContainer onSpin={onSpin} counting={counting} />
+      <ButtonContainer
+        onSpin={onSpin}
+        counting={counting}
+        onIsActive1={onIsActive1}
+        onIsActive2={onIsActive2}
+        onIsActive3={onIsActive3}
+      />
       <p>{storageText}</p>
       <p>{records}</p>
 
