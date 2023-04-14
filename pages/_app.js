@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useLocalStorageState from "use-local-storage-state";
 
-//default-Slot-Machine:
 export default function App({ Component, pageProps }) {
   const [storage, setStorage] = useLocalStorageState("storage", {
     defaultValue: [],
@@ -13,27 +12,21 @@ export default function App({ Component, pageProps }) {
 
   const trafficColor = ["red", "yellow", "green"];
 
-  //"Counting":
   const [trys, setTrys] = useState(0);
 
   const winEquation =
     color1 === color2 && color1 === color3 && color1 !== "lightgrey";
 
-  //Win Condition:
   const result = winEquation ? "won" : "lost";
 
   console.log(storage[0]);
 
   function save() {
-    //ranking best of 5 mit daten überschreibung:
     if (storage.length < 5) {
       setStorage([...storage, trys]);
-      //bis Speicher voll
     }
 
-    //sortierung des Arrays Storage, absteigend:
     if (storage.length >= 5 && storage[0] > trys) {
-      //wenn speicher überfüllt, 1. eintrag des arrays löschen, rest klonen:
       console.log("new record that has to be saved");
       setStorage([...storage.slice(1, 5), trys]);
     }
@@ -43,7 +36,6 @@ export default function App({ Component, pageProps }) {
     setStorage([]);
   }
 
-  // checkVictory and reset game:
   function checkVictory() {
     if (winEquation) {
       if (trys > 0) {
@@ -51,7 +43,7 @@ export default function App({ Component, pageProps }) {
         setColor2("lightgrey");
         setColor3("lightgrey");
         save();
-        //reset:
+
         setTrys(0);
       }
     }
@@ -71,7 +63,6 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleCount() {
-    //das Array im localStorage bei jedem Click der Größe nach absteigend sortieren:
     setStorage(
       storage.sort(function (a, b) {
         return b - a;
@@ -83,12 +74,10 @@ export default function App({ Component, pageProps }) {
     checkVictory();
   }
 
-  // Numbers shown in the wheels: (transformed into symbols/colors later)
   const [amountprint1, setAmountPrint1] = useState(0);
   const [amountprint2, setAmountPrint2] = useState(0);
   const [amountprint3, setAmountPrint3] = useState(0);
 
-  // manage the 3 wheels:
   const [isActive1, setIsActive1] = useState(false);
   const [isActive2, setIsActive2] = useState(false);
   const [isActive3, setIsActive3] = useState(false);
@@ -105,8 +94,6 @@ export default function App({ Component, pageProps }) {
     setIsActive3(state);
   }
 
-  // Spinning wheel mechanic:
-  //wheel1:
   useEffect(() => {
     let interval;
     if (isActive1 === true) {
@@ -117,7 +104,6 @@ export default function App({ Component, pageProps }) {
     return () => clearInterval(interval);
   }, [isActive1]);
 
-  //wheel2:
   useEffect(() => {
     let interval;
     if (isActive2 === true) {
@@ -128,7 +114,6 @@ export default function App({ Component, pageProps }) {
     return () => clearInterval(interval);
   }, [isActive2]);
 
-  //wheel3:
   useEffect(() => {
     let interval;
     if (isActive3 === true) {
@@ -140,11 +125,9 @@ export default function App({ Component, pageProps }) {
   }, [isActive3]);
 
   function randomIntFromInterval(min, max) {
-    // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  //transformation of numbers to emojis:
   function showFruit1() {
     if (amountprint1 === 1) {
       return "🍒";
