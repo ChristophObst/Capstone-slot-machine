@@ -40,7 +40,6 @@ export default function ButtonContainer({
       </StyledButton>
       <StyledButtonWheel
         onClick={() => {
-          console.log("all wheels stopped");
           onIsActive1(false);
           onIsActive2(false);
           onIsActive3(false);
@@ -53,7 +52,6 @@ export default function ButtonContainer({
           onIsActive1(true);
           onIsActive2(true);
           onIsActive3(true);
-          console.log("game started");
         }}
       >
         Start Game

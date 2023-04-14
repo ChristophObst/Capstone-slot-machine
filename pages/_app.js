@@ -19,15 +19,12 @@ export default function App({ Component, pageProps }) {
 
   const result = winEquation ? "won" : "lost";
 
-  console.log(storage[0]);
-
   function save() {
     if (storage.length < 5) {
       setStorage([...storage, trys]);
     }
 
     if (storage.length >= 5 && storage[0] > trys) {
-      console.log("new record that has to be saved");
       setStorage([...storage.slice(1, 5), trys]);
     }
   }
@@ -70,7 +67,7 @@ export default function App({ Component, pageProps }) {
     );
 
     setTrys(trys + 1);
-    console.log(trys);
+
     checkVictory();
   }
 
