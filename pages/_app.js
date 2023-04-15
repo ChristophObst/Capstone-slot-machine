@@ -98,9 +98,9 @@ export default function App({ Component, pageProps }) {
         setAmountPrint1(randomIntFromInterval(1, 3));
       }, 100);
     }
+
     return () => clearInterval(interval);
   }, [isActive1]);
-
   useEffect(() => {
     let interval;
     if (isActive2 === true) {
@@ -125,38 +125,110 @@ export default function App({ Component, pageProps }) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  function showFruit1() {
-    if (amountprint1 === 1) {
+  function showFruit1(amountprint) {
+    if (amountprint === 1) {
       return "🍒";
     }
-    if (amountprint1 === 2) {
+    if (amountprint === 2) {
       return "🍇";
     }
-    if (amountprint1 === 3) {
+    if (amountprint === 3) {
       return "🍋";
     }
   }
 
-  function showFruit2() {
-    if (amountprint2 === 1) {
+  function showFruit2(amountprint) {
+    if (amountprint === 1) {
       return "🍒";
     }
-    if (amountprint2 === 2) {
+    if (amountprint === 2) {
       return "🍇";
     }
-    if (amountprint2 === 3) {
+    if (amountprint === 3) {
       return "🍋";
     }
   }
 
-  function showFruit3() {
-    if (amountprint3 === 1) {
+  function showFruit3(amountprint) {
+    if (amountprint === 1) {
       return "🍒";
     }
-    if (amountprint3 === 2) {
+    if (amountprint === 2) {
       return "🍇";
     }
-    if (amountprint3 === 3) {
+    if (amountprint === 3) {
+      return "🍋";
+    }
+  }
+
+  function firstIncrementFruit1(amountprint) {
+    if (amountprint === 3) {
+      return "🍒";
+    }
+    if (amountprint === 1) {
+      return "🍇";
+    }
+    if (amountprint === 2) {
+      return "🍋";
+    }
+  }
+
+  function secondIncrementFruit1(amountprint) {
+    if (amountprint === 2) {
+      return "🍒";
+    }
+    if (amountprint === 3) {
+      return "🍇";
+    }
+    if (amountprint === 1) {
+      return "🍋";
+    }
+  }
+
+  function firstIncrementFruit2(amountprint) {
+    if (amountprint === 3) {
+      return "🍒";
+    }
+    if (amountprint === 1) {
+      return "🍇";
+    }
+    if (amountprint === 2) {
+      return "🍋";
+    }
+  }
+
+  function secondIncrementFruit2(amountprint) {
+    if (amountprint === 2) {
+      return "🍒";
+    }
+    if (amountprint === 3) {
+      return "🍇";
+    }
+    if (amountprint === 1) {
+      return "🍋";
+    }
+  }
+
+  function firstIncrementFruit3(amountprint) {
+    if (amountprint === 3) {
+      return "🍒";
+    }
+    if (amountprint === 1) {
+      return "🍇";
+    }
+    if (amountprint === 2) {
+      return "🍋";
+    }
+  }
+
+  function secondIncrementFruit3(amountprint) {
+    if (amountprint === 2) {
+      return "🍒";
+    }
+    if (amountprint === 3) {
+      return "🍇";
+    }
+    if (amountprint === 1) {
       return "🍋";
     }
   }
@@ -183,6 +255,12 @@ export default function App({ Component, pageProps }) {
         amountprint1={amountprint1}
         amountprint2={amountprint2}
         amountprint3={amountprint3}
+        firstIncrementFruit1={firstIncrementFruit1}
+        secondIncrementFruit1={secondIncrementFruit1}
+        firstIncrementFruit2={firstIncrementFruit2}
+        secondIncrementFruit2={secondIncrementFruit2}
+        firstIncrementFruit3={firstIncrementFruit3}
+        secondIncrementFruit3={secondIncrementFruit3}
       />
     </>
   );

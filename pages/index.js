@@ -39,6 +39,12 @@ export default function HomePage({
   showFruit1,
   showFruit2,
   showFruit3,
+  firstIncrementFruit1,
+  secondIncrementFruit1,
+  firstIncrementFruit2,
+  secondIncrementFruit2,
+  firstIncrementFruit3,
+  secondIncrementFruit3,
 }) {
   return (
     <div>
@@ -58,6 +64,12 @@ export default function HomePage({
         onIsActive1={onIsActive1}
         onIsActive2={onIsActive2}
         onIsActive3={onIsActive3}
+        firstIncrementFruit1={firstIncrementFruit1}
+        secondIncrementFruit1={secondIncrementFruit1}
+        firstIncrementFruit2={firstIncrementFruit2}
+        secondIncrementFruit2={secondIncrementFruit2}
+        firstIncrementFruit3={firstIncrementFruit3}
+        secondIncrementFruit3={secondIncrementFruit3}
       />
       <ResultContainer>
         <p>{resultText}</p>
