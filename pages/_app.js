@@ -125,7 +125,7 @@ export default function App({ Component, pageProps }) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  function showFruit1(amountprint) {
+  function showFruit(amountprint) {
     if (amountprint === 1) {
       return "🍒";
     }
@@ -137,31 +137,7 @@ export default function App({ Component, pageProps }) {
     }
   }
 
-  function showFruit2(amountprint) {
-    if (amountprint === 1) {
-      return "🍒";
-    }
-    if (amountprint === 2) {
-      return "🍇";
-    }
-    if (amountprint === 3) {
-      return "🍋";
-    }
-  }
-
-  function showFruit3(amountprint) {
-    if (amountprint === 1) {
-      return "🍒";
-    }
-    if (amountprint === 2) {
-      return "🍇";
-    }
-    if (amountprint === 3) {
-      return "🍋";
-    }
-  }
-
-  function firstIncrementFruit1(amountprint) {
+  function firstIncrementFruit(amountprint) {
     if (amountprint === 3) {
       return "🍒";
     }
@@ -173,55 +149,7 @@ export default function App({ Component, pageProps }) {
     }
   }
 
-  function secondIncrementFruit1(amountprint) {
-    if (amountprint === 2) {
-      return "🍒";
-    }
-    if (amountprint === 3) {
-      return "🍇";
-    }
-    if (amountprint === 1) {
-      return "🍋";
-    }
-  }
-
-  function firstIncrementFruit2(amountprint) {
-    if (amountprint === 3) {
-      return "🍒";
-    }
-    if (amountprint === 1) {
-      return "🍇";
-    }
-    if (amountprint === 2) {
-      return "🍋";
-    }
-  }
-
-  function secondIncrementFruit2(amountprint) {
-    if (amountprint === 2) {
-      return "🍒";
-    }
-    if (amountprint === 3) {
-      return "🍇";
-    }
-    if (amountprint === 1) {
-      return "🍋";
-    }
-  }
-
-  function firstIncrementFruit3(amountprint) {
-    if (amountprint === 3) {
-      return "🍒";
-    }
-    if (amountprint === 1) {
-      return "🍇";
-    }
-    if (amountprint === 2) {
-      return "🍋";
-    }
-  }
-
-  function secondIncrementFruit3(amountprint) {
+  function secondIncrementFruit(amountprint) {
     if (amountprint === 2) {
       return "🍒";
     }
@@ -246,21 +174,15 @@ export default function App({ Component, pageProps }) {
         resultText={resultText}
         trys={tryText}
         clearStorage={clearStorage}
-        showFruit1={showFruit1}
-        showFruit2={showFruit2}
-        showFruit3={showFruit3}
+        showFruit={showFruit}
         onIsActive1={handleIsActive1}
         onIsActive2={handleIsActive2}
         onIsActive3={handleIsActive3}
         amountprint1={amountprint1}
         amountprint2={amountprint2}
         amountprint3={amountprint3}
-        firstIncrementFruit1={firstIncrementFruit1}
-        secondIncrementFruit1={secondIncrementFruit1}
-        firstIncrementFruit2={firstIncrementFruit2}
-        secondIncrementFruit2={secondIncrementFruit2}
-        firstIncrementFruit3={firstIncrementFruit3}
-        secondIncrementFruit3={secondIncrementFruit3}
+        firstIncrementFruit={firstIncrementFruit}
+        secondIncrementFruit={secondIncrementFruit}
       />
     </>
   );

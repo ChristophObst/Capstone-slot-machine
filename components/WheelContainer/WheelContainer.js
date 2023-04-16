@@ -41,28 +41,22 @@ export default function WheelContainer({
   color1,
   color2,
   color3,
-  showFruit1,
-  showFruit2,
-  showFruit3,
+  showFruit,
   amountprint1,
   amountprint2,
   amountprint3,
   onIsActive1,
   onIsActive2,
   onIsActive3,
-  firstIncrementFruit1,
-  secondIncrementFruit1,
-  firstIncrementFruit2,
-  secondIncrementFruit2,
-  firstIncrementFruit3,
-  secondIncrementFruit3,
+  firstIncrementFruit,
+  secondIncrementFruit,
 }) {
   return (
     <StyledWheelContainer>
       <StyledSlot>
-        <p>{showFruit1(amountprint1)}</p>
-        <p>{firstIncrementFruit1(amountprint1)}</p>
-        <p>{secondIncrementFruit1(amountprint1)}</p>
+        <p>{showFruit(amountprint1)}</p>
+        <p>{firstIncrementFruit(amountprint1)}</p>
+        <p>{secondIncrementFruit(amountprint1)}</p>
         <StyledBox1 color={color1} />
         <StyledButtonWheel
           onClick={() => {
@@ -73,9 +67,9 @@ export default function WheelContainer({
         </StyledButtonWheel>
       </StyledSlot>
       <StyledSlot>
-        <p>{showFruit2(amountprint2)}</p>
-        <p>{firstIncrementFruit2(amountprint2)}</p>
-        <p>{secondIncrementFruit2(amountprint2)}</p>
+        <p>{showFruit(amountprint2)}</p>
+        <p>{firstIncrementFruit(amountprint2)}</p>
+        <p>{secondIncrementFruit(amountprint2)}</p>
         <StyledBox2 color={color2} />
         <StyledButtonWheel
           onClick={() => {
@@ -86,9 +80,9 @@ export default function WheelContainer({
         </StyledButtonWheel>
       </StyledSlot>
       <StyledSlot>
-        <p>{showFruit3(amountprint3)}</p>
-        <p>{firstIncrementFruit3(amountprint3)}</p>
-        <p>{secondIncrementFruit3(amountprint3)}</p>
+        <p>{showFruit(amountprint3)}</p>
+        <p>{firstIncrementFruit(amountprint3)}</p>
+        <p>{secondIncrementFruit(amountprint3)}</p>
         <StyledBox3 color={color3} />
         <StyledButtonWheel
           onClick={() => {
