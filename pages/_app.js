@@ -44,9 +44,24 @@ export default function App({ Component, pageProps }) {
     !isActive3 &&
     !isActive1;
 
-  const result = checkFruits ? "won" : "lost";
+  function displayText() {
+    if ((amountprint1, amountprint2, amountprint3 === 0)) {
+      return "wait to start";
+    }
+    if (isActive1 && isActive2 && isActive3) {
+      return "spinning...";
+    }
+    if (checkFruits) {
+      return "You won";
+    }
+    if (!checkFruits && !isActive1 && !isActive2 && !isActive3) {
+      return "You lost";
+    }
+  }
 
-  const resultText = `You ${result}`;
+  /* const status = `${checkSpinning}`; */
+  const result = displayText();
+  const resultText = result;
   const tryText = `tries: ${trys}`;
 
   function handleIsActive1(state) {
@@ -66,7 +81,7 @@ export default function App({ Component, pageProps }) {
     if (isActive1 === true) {
       interval = setInterval(() => {
         setAmountPrint1(randomIntFromInterval(1, 3));
-      }, 100);
+      }, 1000);
     }
 
     return () => clearInterval(interval);
@@ -76,7 +91,7 @@ export default function App({ Component, pageProps }) {
     if (isActive2 === true) {
       interval = setInterval(() => {
         setAmountPrint2(randomIntFromInterval(1, 3));
-      }, 100);
+      }, 1000);
     }
     return () => clearInterval(interval);
   }, [isActive2]);
@@ -86,7 +101,7 @@ export default function App({ Component, pageProps }) {
     if (isActive3 === true) {
       interval = setInterval(() => {
         setAmountPrint3(randomIntFromInterval(1, 3));
-      }, 100);
+      }, 1000);
     }
     return () => clearInterval(interval);
   }, [isActive3]);
