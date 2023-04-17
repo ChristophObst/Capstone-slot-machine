@@ -6,69 +6,24 @@ export default function App({ Component, pageProps }) {
     defaultValue: [],
   });
 
-  const [color1, setColor1] = useState("lightgrey");
-  const [color2, setColor2] = useState("lightgrey");
-  const [color3, setColor3] = useState("lightgrey");
-
-  const trafficColor = ["red", "yellow", "green"];
-
   const [trys, setTrys] = useState(0);
-
-  const winEquation =
-    color1 === color2 && color1 === color3 && color1 !== "lightgrey";
-
-  const result = winEquation ? "won" : "lost";
 
   function save() {
     if (storage.length < 5) {
       setStorage([...storage, trys]);
     }
-
-    if (storage.length >= 5 && storage[0] > trys) {
+    if (
+      (storage.length >= 5 && storage[1]) ||
+      storage[2] ||
+      storage[3] ||
+      storage[4] > trys
+    ) {
       setStorage([...storage.slice(1, 5), trys]);
     }
   }
 
   function clearStorage() {
     setStorage([]);
-  }
-
-  function checkVictory() {
-    if (winEquation) {
-      if (trys > 0) {
-        setColor1("lightgrey");
-        setColor2("lightgrey");
-        setColor3("lightgrey");
-        save();
-
-        setTrys(0);
-      }
-    }
-  }
-
-  const resultText = `You ${result}`;
-  const tryText = `tries: ${trys}`;
-
-  function randomNumber() {
-    return Math.floor(Math.random() * trafficColor.length);
-  }
-
-  function handleSpin() {
-    setColor1(trafficColor[randomNumber()]);
-    setColor2(trafficColor[randomNumber()]);
-    setColor3(trafficColor[randomNumber()]);
-  }
-
-  function handleCount() {
-    setStorage(
-      storage.sort(function (a, b) {
-        return b - a;
-      })
-    );
-
-    setTrys(trys + 1);
-
-    checkVictory();
   }
 
   const [amountprint1, setAmountPrint1] = useState(0);
@@ -78,6 +33,21 @@ export default function App({ Component, pageProps }) {
   const [isActive1, setIsActive1] = useState(false);
   const [isActive2, setIsActive2] = useState(false);
   const [isActive3, setIsActive3] = useState(false);
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------------
+
+  //new
+  const checkFruits =
+    (amountprint1 === amountprint2 && amountprint3) === amountprint1 &&
+    amountprint3 &&
+    !isActive1 &&
+    !isActive3 &&
+    !isActive1;
+
+  const result = checkFruits ? "won" : "lost";
+
+  const resultText = `You ${result}`;
+  const tryText = `tries: ${trys}`;
 
   function handleIsActive1(state) {
     setIsActive1(state);
@@ -120,6 +90,19 @@ export default function App({ Component, pageProps }) {
     }
     return () => clearInterval(interval);
   }, [isActive3]);
+
+  useEffect(() => {
+    setTrys(trys);
+    if (checkFruits) {
+      tryText;
+      save();
+
+      setTrys(1);
+    }
+    if (!checkFruits && !isActive3 && !isActive1 && !isActive2) {
+      setTrys(trys + 1);
+    }
+  }, [isActive3 || isActive2 || isActive1]);
 
   function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -165,11 +148,6 @@ export default function App({ Component, pageProps }) {
     <>
       <Component
         {...pageProps}
-        color1={color1}
-        color2={color2}
-        color3={color3}
-        onSpin={handleSpin}
-        counting={handleCount}
         result={result}
         resultText={resultText}
         trys={tryText}

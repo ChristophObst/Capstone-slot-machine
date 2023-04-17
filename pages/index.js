@@ -64,8 +64,6 @@ export default function HomePage({
         <p>{trys}</p>
       </ResultContainer>
       <ButtonContainer
-        onSpin={onSpin}
-        counting={counting}
         onIsActive1={onIsActive1}
         onIsActive2={onIsActive2}
         onIsActive3={onIsActive3}
