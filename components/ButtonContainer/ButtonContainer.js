@@ -10,11 +10,6 @@ const StyledButtonContainer = styled.div`
   gap: 10px;
 `;
 
-const StyledButton = styled.button`
-  width: 100px;
-  height: 50px;
-`;
-
 const StyledButtonWheel = styled.button`
   display: flex;
   height: 25px;
@@ -22,22 +17,12 @@ const StyledButtonWheel = styled.button`
 `;
 
 export default function ButtonContainer({
-  onSpin,
-  counting,
   onIsActive1,
   onIsActive2,
   onIsActive3,
 }) {
   return (
     <StyledButtonContainer>
-      <StyledButton
-        onClick={() => {
-          onSpin();
-          counting();
-        }}
-      >
-        Start *old mechanic*
-      </StyledButton>
       <StyledButtonWheel
         onClick={() => {
           onIsActive1(false);

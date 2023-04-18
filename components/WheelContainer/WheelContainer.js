@@ -38,9 +38,6 @@ const StyledButtonWheel = styled.button`
 `;
 
 export default function WheelContainer({
-  color1,
-  color2,
-  color3,
   showFruit,
   amountprint1,
   amountprint2,
@@ -57,7 +54,7 @@ export default function WheelContainer({
         <p>{showFruit(amountprint1)}</p>
         <p>{firstIncrementFruit(amountprint1)}</p>
         <p>{secondIncrementFruit(amountprint1)}</p>
-        <StyledBox1 color={color1} />
+        <StyledBox1 />
         <StyledButtonWheel
           onClick={() => {
             onIsActive1(false);
@@ -70,7 +67,7 @@ export default function WheelContainer({
         <p>{showFruit(amountprint2)}</p>
         <p>{firstIncrementFruit(amountprint2)}</p>
         <p>{secondIncrementFruit(amountprint2)}</p>
-        <StyledBox2 color={color2} />
+        <StyledBox2 />
         <StyledButtonWheel
           onClick={() => {
             onIsActive2(false);
@@ -83,7 +80,7 @@ export default function WheelContainer({
         <p>{showFruit(amountprint3)}</p>
         <p>{firstIncrementFruit(amountprint3)}</p>
         <p>{secondIncrementFruit(amountprint3)}</p>
-        <StyledBox3 color={color3} />
+        <StyledBox3 />
         <StyledButtonWheel
           onClick={() => {
             onIsActive3(false);
