@@ -5,6 +5,7 @@ const StyledWheelContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 10px;
+  margin-bottom: 20px;
 `;
 
 const StyledBox1 = styled.div`
