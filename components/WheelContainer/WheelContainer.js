@@ -5,7 +5,9 @@ const StyledWheelContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
+
+  align-items: center;
 `;
 
 const StyledBox1 = styled.div`
@@ -30,12 +32,63 @@ const StyledSlot = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  border: 2.5px solid orange;
+  @media (min-width: 400px) {
+    font-size: 150%;
+    border-radius: 30px;    
+    background: gold;
+    display: flex
+    width: 80%;
+    height: 280px;
+    align-items: center;
+    margin-bottom: 50px;   
+    border: 5px solid orange
+  }
+  @media (min-width: 700px) {
+    font-size: 250%;
+    border-radius: 30px;    
+    background: gold;
+    display: flex
+    width: 80%;
+    height: 440px;
+    align-items: center;
+    margin-bottom: 50px;   
+    border: 5px solid orange
+  }
+  
 `;
 
 const StyledButtonWheel = styled.button`
   display: flex;
-  height: 25px;
   align-items: center;
+  color: white;
+  background: red;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 75px;
+
+  @media (min-width: 400px) {
+    color: white;
+    height: 40px;
+    width: 80px;
+    border-radius: 20px;
+    background: red;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 75px;
+  }
+
+  @media (min-width: 700px) {
+    color: white;
+    border-radius: 20px;
+    background: red;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 75px;
+  }
 `;
 
 export default function WheelContainer({

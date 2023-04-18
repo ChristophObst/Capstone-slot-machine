@@ -14,6 +14,48 @@ const StyledButtonWheel = styled.button`
   display: flex;
   height: 25px;
   align-items: center;
+  background: green;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 400px) {
+    background: green;
+    color: white;
+    font-weight: bold;
+    height: 80px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 100%;
+  }
+`;
+
+const StyledButtonWheelStop = styled.button`
+  display: flex;
+  height: 25px;
+  align-items: center;
+  background: red;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 400px) {
+    background: red;
+    color: white;
+    height: 80px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 100%;
+  }
 `;
 
 export default function ButtonContainer({
@@ -23,7 +65,7 @@ export default function ButtonContainer({
 }) {
   return (
     <StyledButtonContainer>
-      <StyledButtonWheel
+      <StyledButtonWheelStop
         onClick={() => {
           onIsActive1(false);
           onIsActive2(false);
@@ -31,7 +73,7 @@ export default function ButtonContainer({
         }}
       >
         Stop all Wheels
-      </StyledButtonWheel>
+      </StyledButtonWheelStop>
       <StyledButtonWheel
         onClick={() => {
           onIsActive1(true);

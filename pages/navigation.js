@@ -2,9 +2,12 @@ import Link from "next/link";
 import useLocalStorageState from "use-local-storage-state";
 import styled from "styled-components";
 
-const ClearButton = styled.button`
-  width: 50px;
-  height: 25px;
+const StyledButton = styled.button`
+  width: 300px;
+  height: 60px;
+  background-color: gold;
+
+  font-weight: 900;
 `;
 
 export default function Navigation({ clearStorage, list }) {
@@ -20,15 +23,15 @@ export default function Navigation({ clearStorage, list }) {
   return (
     <p>
       <Link href={"/"}>
-        <button>Home</button>
+        <StyledButton>Home</StyledButton>
       </Link>
-      <button
+      <StyledButton
         onClick={() => {
           clearStorage();
         }}
       >
         clear Storage
-      </button>
+      </StyledButton>
 
       <p>best of 5 records, reverse ranking: {showStorage}</p>
     </p>

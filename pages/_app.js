@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useLocalStorageState from "use-local-storage-state";
+import GlobalStyle from "../styles";
 
 export default function App({ Component, pageProps }) {
   const [storage, setStorage] = useLocalStorageState("storage", {
@@ -26,17 +27,14 @@ export default function App({ Component, pageProps }) {
     setStorage([]);
   }
 
-  const [amountprint1, setAmountPrint1] = useState(0);
-  const [amountprint2, setAmountPrint2] = useState(0);
-  const [amountprint3, setAmountPrint3] = useState(0);
+  const [amountprint1, setAmountPrint1] = useState(1);
+  const [amountprint2, setAmountPrint2] = useState(2);
+  const [amountprint3, setAmountPrint3] = useState(3);
 
   const [isActive1, setIsActive1] = useState(false);
   const [isActive2, setIsActive2] = useState(false);
   const [isActive3, setIsActive3] = useState(false);
 
-  //-------------------------------------------------------------------------------------------------------------------------------------------------
-
-  //new
   const checkFruits =
     (amountprint1 === amountprint2 && amountprint3) === amountprint1 &&
     amountprint3 &&
@@ -59,7 +57,6 @@ export default function App({ Component, pageProps }) {
     }
   }
 
-  /* const status = `${checkSpinning}`; */
   const result = displayText();
   const resultText = result;
   const tryText = `tries: ${trys}`;
@@ -178,6 +175,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
+      <GlobalStyle />
       <Component
         {...pageProps}
         result={result}
