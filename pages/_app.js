@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
 
   function save() {
     if (storage.length < 5) {
-      setStorage([...storage, trys]);
+      setStorage([...storage, trys + 1]);
     }
     if (
       (storage.length >= 5 && storage[1]) ||
@@ -108,13 +108,30 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     setTrys(trys);
-    if (checkFruits) {
-      tryText;
+    //first win:
+    if (checkFruits && trys === 0) {
+      setTrys(0);
       save();
-
-      setTrys(1);
+      tryText;
+      alert("You won");
     }
-    if (!checkFruits && !isActive3 && !isActive1 && !isActive2) {
+
+    if (checkFruits && trys >= 1) {
+      save();
+      tryText;
+      setTrys(0);
+      alert("You won");
+    }
+    if (amountprint1 && amountprint2 && amountprint3 === 0) {
+      setTrys(0);
+    }
+    if (
+      amountprint1 != 0 &&
+      !checkFruits &&
+      !isActive3 &&
+      !isActive1 &&
+      !isActive2
+    ) {
       setTrys(trys + 1);
     }
   }, [isActive3 || isActive2 || isActive1]);
