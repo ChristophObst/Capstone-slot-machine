@@ -35,6 +35,8 @@ export default function App({ Component, pageProps }) {
   const [isActive2, setIsActive2] = useState(false);
   const [isActive3, setIsActive3] = useState(false);
 
+  const [counter, setCounter] = useState(0);
+
   const checkFruits =
     (amountprint1 === amountprint2 && amountprint3) === amountprint1 &&
     amountprint3 &&
@@ -43,7 +45,7 @@ export default function App({ Component, pageProps }) {
     !isActive1;
 
   function displayText() {
-    if ((amountprint1, amountprint2, amountprint3 === 0)) {
+    if (!checkFruits && !isActive1 && !isActive2 && !isActive3) {
       return "wait to start";
     }
     if (isActive1 && isActive2 && isActive3) {
@@ -51,9 +53,6 @@ export default function App({ Component, pageProps }) {
     }
     if (checkFruits) {
       return "You won";
-    }
-    if (!checkFruits && !isActive1 && !isActive2 && !isActive3) {
-      return "You lost";
     }
   }
 
@@ -103,37 +102,32 @@ export default function App({ Component, pageProps }) {
     return () => clearInterval(interval);
   }, [isActive3]);
 
-  //--------------------------------------------------------------------------------------------------dependencies need to be fixed:
   useEffect(() => {
-    setTrys(trys);
-    // first starting the machine:
+    checkIfDefault();
+    checkStatusSpin();
+  }, [isActive3 || isActive2 || isActive1]);
 
-    if (checkFruits && trys === 0) {
+  function checkIfDefault() {
+    if (counter === 0) {
       setTrys(0);
+      setCounter(1);
+    } else loosing();
+  }
+
+  function checkStatusSpin() {
+    if (checkFruits) {
       save();
+      setTrys(0);
       tryText;
       alert("You won");
     }
-    // winning after 1st game:
-    if (checkFruits && trys >= 1) {
-      save();
-      tryText;
-      setTrys(0);
-      alert("You won");
-    }
-    if (amountprint1 && amountprint2 && amountprint3 === 0) {
-      setTrys(0);
-    }
-    if (
-      amountprint1 != 0 &&
-      !checkFruits &&
-      !isActive3 &&
-      !isActive1 &&
-      !isActive2
-    ) {
+  }
+
+  function loosing() {
+    if (!checkFruits && !isActive3 && !isActive1 && !isActive2) {
       setTrys(trys + 1);
     }
-  }, [isActive3 || isActive2 || isActive1]);
+  }
 
   function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
