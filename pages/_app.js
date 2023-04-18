@@ -88,7 +88,7 @@ export default function App({ Component, pageProps }) {
     if (isActive2 === true) {
       interval = setInterval(() => {
         setAmountPrint2(randomIntFromInterval(1, 3));
-      }, 100);
+      }, 1000);
     }
     return () => clearInterval(interval);
   }, [isActive2]);
@@ -98,21 +98,23 @@ export default function App({ Component, pageProps }) {
     if (isActive3 === true) {
       interval = setInterval(() => {
         setAmountPrint3(randomIntFromInterval(1, 3));
-      }, 100);
+      }, 1000);
     }
     return () => clearInterval(interval);
   }, [isActive3]);
 
+  //--------------------------------------------------------------------------------------------------dependencies need to be fixed:
   useEffect(() => {
     setTrys(trys);
-    //first win:
+    // first starting the machine:
+
     if (checkFruits && trys === 0) {
       setTrys(0);
       save();
       tryText;
       alert("You won");
     }
-
+    // winning after 1st game:
     if (checkFruits && trys >= 1) {
       save();
       tryText;
