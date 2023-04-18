@@ -91,7 +91,7 @@ export default function App({ Component, pageProps }) {
     if (isActive2 === true) {
       interval = setInterval(() => {
         setAmountPrint2(randomIntFromInterval(1, 3));
-      }, 1000);
+      }, 100);
     }
     return () => clearInterval(interval);
   }, [isActive2]);
@@ -101,7 +101,7 @@ export default function App({ Component, pageProps }) {
     if (isActive3 === true) {
       interval = setInterval(() => {
         setAmountPrint3(randomIntFromInterval(1, 3));
-      }, 1000);
+      }, 100);
     }
     return () => clearInterval(interval);
   }, [isActive3]);
