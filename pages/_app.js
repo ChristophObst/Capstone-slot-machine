@@ -27,6 +27,8 @@ export default function App({ Component, pageProps }) {
     setStorage([]);
   }
 
+  const [counter, setCounter] = useState(0);
+
   const [amountprint1, setAmountPrint1] = useState(1);
   const [amountprint2, setAmountPrint2] = useState(2);
   const [amountprint3, setAmountPrint3] = useState(3);
@@ -43,7 +45,7 @@ export default function App({ Component, pageProps }) {
     !isActive1;
 
   function displayText() {
-    if ((amountprint1, amountprint2, amountprint3 === 0)) {
+    if (!checkFruits && !isActive1 && !isActive2 && !isActive3) {
       return "wait to start";
     }
     if (isActive1 && isActive2 && isActive3) {
@@ -51,9 +53,6 @@ export default function App({ Component, pageProps }) {
     }
     if (checkFruits) {
       return "You won";
-    }
-    if (!checkFruits && !isActive1 && !isActive2 && !isActive3) {
-      return "You lost";
     }
   }
 
@@ -88,7 +87,7 @@ export default function App({ Component, pageProps }) {
     if (isActive2 === true) {
       interval = setInterval(() => {
         setAmountPrint2(randomIntFromInterval(1, 3));
-      }, 1000);
+      }, 100);
     }
     return () => clearInterval(interval);
   }, [isActive2]);
@@ -98,42 +97,38 @@ export default function App({ Component, pageProps }) {
     if (isActive3 === true) {
       interval = setInterval(() => {
         setAmountPrint3(randomIntFromInterval(1, 3));
-      }, 1000);
+      }, 100);
     }
     return () => clearInterval(interval);
   }, [isActive3]);
 
+  function loosing() {
+    if (!checkFruits && !isActive3 && !isActive1 && !isActive2) {
+      setTrys(trys + 1);
+    }
+  }
+
   //--------------------------------------------------------------------------------------------------dependencies need to be fixed:
   useEffect(() => {
     setTrys(trys);
-    // first starting the machine:
-
-    if (checkFruits && trys === 0) {
-      setTrys(0);
-      save();
-      tryText;
-      alert("You won");
-    }
-    // winning after 1st game:
-    if (checkFruits && trys >= 1) {
-      save();
-      tryText;
-      setTrys(0);
-      alert("You won");
-    }
-    if (amountprint1 && amountprint2 && amountprint3 === 0) {
-      setTrys(0);
-    }
-    if (
-      amountprint1 != 0 &&
-      !checkFruits &&
-      !isActive3 &&
-      !isActive1 &&
-      !isActive2
-    ) {
-      setTrys(trys + 1);
-    }
+    checkIfDefault();
+    checkStatusSpin();
   }, [isActive3 || isActive2 || isActive1]);
+
+  function checkIfDefault() {
+    if (counter === 0) {
+      setTrys(0);
+      setCounter(1);
+    } else loosing();
+  }
+
+  function checkStatusSpin() {
+    if (checkFruits) {
+      save();
+      tryText;
+      alert("You won");
+    }
+  }
 
   function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
