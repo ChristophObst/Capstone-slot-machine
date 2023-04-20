@@ -88,7 +88,9 @@ export default function App({ Component, pageProps }) {
     setIsActive3(state);
   }
 
-  const [userName, setUserName] = useState([]);
+  const [userName, setUserName] = useLocalStorageState("storage", {
+    defaultValue: [],
+  });
 
   const { data, error, isLoading } = useSWR(
     "https://randomuser.me/api",
@@ -120,7 +122,7 @@ export default function App({ Component, pageProps }) {
     if (isActive2 === true) {
       interval = setInterval(() => {
         setAmountPrint2(randomIntFromInterval(1, 3));
-      }, 100);
+      }, 500);
     }
     return () => clearInterval(interval);
   }, [isActive2]);
@@ -130,7 +132,7 @@ export default function App({ Component, pageProps }) {
     if (isActive3 === true) {
       interval = setInterval(() => {
         setAmountPrint3(randomIntFromInterval(1, 3));
-      }, 100);
+      }, 500);
     }
     return () => clearInterval(interval);
   }, [isActive3]);
