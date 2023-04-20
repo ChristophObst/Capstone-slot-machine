@@ -37,6 +37,8 @@ export default function App({ Component, pageProps }) {
   const [isActive2, setIsActive2] = useState(false);
   const [isActive3, setIsActive3] = useState(false);
 
+  const [counter, setCounter] = useState(0);
+
   const checkFruits =
     (amountprint1 === amountprint2 && amountprint3) === amountprint1 &&
     amountprint3 &&
@@ -102,7 +104,7 @@ export default function App({ Component, pageProps }) {
     return () => clearInterval(interval);
   }, [isActive3]);
 
-  function loosing() {
+function loosing() {
     if (!checkFruits && !isActive3 && !isActive1 && !isActive2) {
       setTrys(trys + 1);
     }
@@ -114,6 +116,10 @@ export default function App({ Component, pageProps }) {
     checkIfDefault();
     checkStatusSpin();
   }, [isActive3 || isActive2 || isActive1]);
+  
+    checkIfDefault();
+    checkStatusSpin();
+  }, [isActive3 || isActive2 || isActive1]);
 
   function checkIfDefault() {
     if (counter === 0) {
@@ -122,7 +128,7 @@ export default function App({ Component, pageProps }) {
     } else loosing();
   }
 
-  function checkStatusSpin() {
+ function checkStatusSpin() {
     if (checkFruits) {
       save();
       tryText;
@@ -133,7 +139,6 @@ export default function App({ Component, pageProps }) {
   function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
-
   function showFruit(amountprint) {
     if (amountprint === 1) {
       return "🍒";
