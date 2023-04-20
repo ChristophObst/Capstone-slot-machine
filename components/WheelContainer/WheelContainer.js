@@ -9,7 +9,7 @@ const StyledWheelContainer = styled.div`
 
   align-items: center;
 `;
-//------
+
 const StyledBox1 = styled.div`
   background: ${(props) => props.color};
   width: 100px;

@@ -1,6 +1,22 @@
 import React, { useEffect, useState } from "react";
 import useLocalStorageState from "use-local-storage-state";
 import GlobalStyle from "../styles";
+import useSWR from "swr";
+
+const fetcher = async (url) => {
+  const res = await fetch(url);
+  // If the status code is not in the range 200-299,,,
+  // we still try to parse and throw it.
+  if (!res.ok) {
+    const error = new Error("An error occurred while fetching the data.");
+    // Attach extra info to the error object.
+    error.info = await res.json();
+    error.status = res.status;
+    throw error;
+  }
+
+  return res.json();
+};
 
 export default function App({ Component, pageProps }) {
   const [storage, setStorage] = useLocalStorageState("storage", {
@@ -72,6 +88,23 @@ export default function App({ Component, pageProps }) {
     setIsActive3(state);
   }
 
+  const [userName, setUserName] = useState([]);
+
+  const { data, error, isLoading } = useSWR(
+    "https://randomuser.me/api",
+    fetcher
+  );
+
+  const [hasMounted, setHasMounted] = useState(false);
+
+  const name = error
+    ? "Error"
+    : isLoading
+    ? "loading..."
+    : data.results.length > 0
+    ? data.results[0].name.first
+    : null;
+
   useEffect(() => {
     let interval;
     if (isActive1 === true) {
@@ -115,6 +148,14 @@ export default function App({ Component, pageProps }) {
     checkStatusSpin();
   }, [isActive3 || isActive2 || isActive1]);
 
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) {
+    return null;
+  }
+
   function checkIfDefault() {
     if (counter === 0) {
       setTrys(0);
@@ -125,6 +166,8 @@ export default function App({ Component, pageProps }) {
   function checkStatusSpin() {
     if (checkFruits) {
       save();
+      setUserName([...userName, name]);
+      setTrys(0);
       tryText;
       alert("You won");
     }
@@ -175,6 +218,7 @@ export default function App({ Component, pageProps }) {
       <GlobalStyle />
       <Component
         {...pageProps}
+        userName={userName}
         result={result}
         resultText={resultText}
         trys={tryText}
