@@ -108,7 +108,7 @@ export default function App({ Component, pageProps }) {
     }
   }
 
-  //--------------------------------------------------------------------------------------------------dependencies need to be fixed:
+  //------------------------------------------------------------------------------------------------dependencies need to be fixed:
   useEffect(() => {
     setTrys(trys);
     checkIfDefault();
