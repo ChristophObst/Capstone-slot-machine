@@ -27,6 +27,8 @@ export default function App({ Component, pageProps }) {
     setStorage([]);
   }
 
+  const [counter, setCounter] = useState(0);
+
   const [amountprint1, setAmountPrint1] = useState(1);
   const [amountprint2, setAmountPrint2] = useState(2);
   const [amountprint3, setAmountPrint3] = useState(3);
@@ -34,8 +36,6 @@ export default function App({ Component, pageProps }) {
   const [isActive1, setIsActive1] = useState(false);
   const [isActive2, setIsActive2] = useState(false);
   const [isActive3, setIsActive3] = useState(false);
-
-  const [counter, setCounter] = useState(0);
 
   const checkFruits =
     (amountprint1 === amountprint2 && amountprint3) === amountprint1 &&
@@ -87,7 +87,7 @@ export default function App({ Component, pageProps }) {
     if (isActive2 === true) {
       interval = setInterval(() => {
         setAmountPrint2(randomIntFromInterval(1, 3));
-      }, 1000);
+      }, 100);
     }
     return () => clearInterval(interval);
   }, [isActive2]);
@@ -97,12 +97,20 @@ export default function App({ Component, pageProps }) {
     if (isActive3 === true) {
       interval = setInterval(() => {
         setAmountPrint3(randomIntFromInterval(1, 3));
-      }, 1000);
+      }, 100);
     }
     return () => clearInterval(interval);
   }, [isActive3]);
 
+  function loosing() {
+    if (!checkFruits && !isActive3 && !isActive1 && !isActive2) {
+      setTrys(trys + 1);
+    }
+  }
+
+  //--------------------------------------------------------------------------------------------------dependencies need to be fixed:
   useEffect(() => {
+    setTrys(trys);
     checkIfDefault();
     checkStatusSpin();
   }, [isActive3 || isActive2 || isActive1]);
@@ -117,15 +125,8 @@ export default function App({ Component, pageProps }) {
   function checkStatusSpin() {
     if (checkFruits) {
       save();
-      setTrys(0);
       tryText;
       alert("You won");
-    }
-  }
-
-  function loosing() {
-    if (!checkFruits && !isActive3 && !isActive1 && !isActive2) {
-      setTrys(trys + 1);
     }
   }
 
