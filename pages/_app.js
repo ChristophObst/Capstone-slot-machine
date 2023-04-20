@@ -88,7 +88,7 @@ export default function App({ Component, pageProps }) {
     setIsActive3(state);
   }
 
-  const [userName, setUserName] = useLocalStorageState("storage", {
+  const [userName, setUserName] = useLocalStorageState("storageNames", {
     defaultValue: [],
   });
 
