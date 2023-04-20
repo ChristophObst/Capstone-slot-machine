@@ -14,7 +14,7 @@ const ResultContainer = styled.div`
   justify-content: center;
   gap: 10px;
 `;
-//-----------------------------------------
+//----------------------------------------
 const ContainerNavigation = styled.div`
   display: flex;
   justify-content: center;

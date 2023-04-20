@@ -108,11 +108,11 @@ export default function App({ Component, pageProps }) {
     }
   }
 
-  //------------------------------------------------------------------------------------------------dependencies need to be fixed:
+  //-----------------------------------------------------------------------------------------------dependencies need to be fixed:
   useEffect(() => {
-    /*   setTrys(trys);
+    setTrys(trys);
     checkIfDefault();
-    checkStatusSpin(); */
+    checkStatusSpin();
   }, [isActive3 || isActive2 || isActive1]);
 
   function checkIfDefault() {
