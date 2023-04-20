@@ -79,9 +79,9 @@ export default function App({ Component, pageProps }) {
         setAmountPrint1(randomIntFromInterval(1, 3));
       }, 100);
     }
-
     return () => clearInterval(interval);
   }, [isActive1]);
+
   useEffect(() => {
     let interval;
     if (isActive2 === true) {
@@ -110,9 +110,9 @@ export default function App({ Component, pageProps }) {
 
   //------------------------------------------------------------------------------------------------dependencies need to be fixed:
   useEffect(() => {
-    setTrys(trys);
+    /*   setTrys(trys);
     checkIfDefault();
-    checkStatusSpin();
+    checkStatusSpin(); */
   }, [isActive3 || isActive2 || isActive1]);
 
   function checkIfDefault() {
