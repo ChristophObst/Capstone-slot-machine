@@ -15,9 +15,16 @@ const ResultContainer = styled.div`
   gap: 10px;
 `;
 
+const ContainerNavigation = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 const NavigationButton = styled.button`
   width: 10spx;
   height: 20px;
+  background-color: gold;
+  display: flex;
 `;
 
 export default function HomePage({
@@ -72,7 +79,9 @@ export default function HomePage({
       <p>{records}</p>
 
       <Link href={"/navigation"}>
-        <NavigationButton>jump to records page</NavigationButton>
+        <ContainerNavigation>
+          <NavigationButton>jump to records page</NavigationButton>
+        </ContainerNavigation>
       </Link>
     </div>
   );
