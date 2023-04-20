@@ -27,8 +27,6 @@ export default function App({ Component, pageProps }) {
     setStorage([]);
   }
 
-  const [counter, setCounter] = useState(0);
-
   const [amountprint1, setAmountPrint1] = useState(1);
   const [amountprint2, setAmountPrint2] = useState(2);
   const [amountprint3, setAmountPrint3] = useState(3);
@@ -89,7 +87,7 @@ export default function App({ Component, pageProps }) {
     if (isActive2 === true) {
       interval = setInterval(() => {
         setAmountPrint2(randomIntFromInterval(1, 3));
-      }, 100);
+      }, 1000);
     }
     return () => clearInterval(interval);
   }, [isActive2]);
@@ -99,24 +97,12 @@ export default function App({ Component, pageProps }) {
     if (isActive3 === true) {
       interval = setInterval(() => {
         setAmountPrint3(randomIntFromInterval(1, 3));
-      }, 100);
+      }, 1000);
     }
     return () => clearInterval(interval);
   }, [isActive3]);
 
-function loosing() {
-    if (!checkFruits && !isActive3 && !isActive1 && !isActive2) {
-      setTrys(trys + 1);
-    }
-  }
-
-  //--------------------------------------------------------------------------------------------------dependencies need to be fixed:
   useEffect(() => {
-    setTrys(trys);
-    checkIfDefault();
-    checkStatusSpin();
-  }, [isActive3 || isActive2 || isActive1]);
-  
     checkIfDefault();
     checkStatusSpin();
   }, [isActive3 || isActive2 || isActive1]);
@@ -128,17 +114,25 @@ function loosing() {
     } else loosing();
   }
 
- function checkStatusSpin() {
+  function checkStatusSpin() {
     if (checkFruits) {
       save();
+      setTrys(0);
       tryText;
       alert("You won");
+    }
+  }
+
+  function loosing() {
+    if (!checkFruits && !isActive3 && !isActive1 && !isActive2) {
+      setTrys(trys + 1);
     }
   }
 
   function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
+
   function showFruit(amountprint) {
     if (amountprint === 1) {
       return "🍒";
