@@ -83,6 +83,11 @@ export default function HomePage({
           <NavigationButton>jump to records page</NavigationButton>
         </ContainerNavigation>
       </Link>
+      <Link href={"/commentary"}>
+        <ContainerNavigation>
+          <NavigationButton>jump to commentary page</NavigationButton>
+        </ContainerNavigation>
+      </Link>
     </div>
   );
 }
