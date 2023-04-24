@@ -1,77 +1,64 @@
 import styled from "styled-components";
-import React, { useState } from "react";
 
 const StyledWheelContainer = styled.div`
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 35px;
+  gap: 1rem;
+  margin-top: 2rem;
+`;
 
+const StyledSlotWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   align-items: center;
-`;
-
-const StyledBox1 = styled.div`
-  background: ${(props) => props.color};
-  width: 100px;
-  height: 200px;
-`;
-const StyledBox2 = styled.div`
-  background: ${(props) => props.color};
-  width: 100px;
-  height: 200px;
-`;
-const StyledBox3 = styled.div`
-  background: ${(props) => props.color};
-  width: 100px;
-  height: 200px;
+  gap: 1.3rem;
 `;
 
 const StyledSlot = styled.div`
   display: flex;
   height: 200px;
+  width: 6rem;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  border: 2.5px solid orange;
+  border: 1px solid #bababa;
+  border-radius: 5px;
+  background-color: #f8f8f8;
   @media (min-width: 400px) {
     font-size: 150%;
-    border-radius: 30px;    
-    background: gold;
-    display: flex
+    border-radius: 30px;
+    background-color: #f8f8f8;
+    display: flex;
     width: 80%;
     height: 280px;
     align-items: center;
-    margin-bottom: 50px;   
-    border: 5px solid orange
+    margin-bottom: 50px;
+    border: 1px solid #bababa;
+    border-radius: 5px;
   }
   @media (min-width: 700px) {
     font-size: 250%;
-    border-radius: 30px;    
-    background: gold;
-    display: flex
+    border-radius: 30px;
+    background-color: #f8f8f8;
+    display: flex;
     width: 80%;
     height: 440px;
     align-items: center;
-    margin-bottom: 50px;   
-    border: 5px solid orange
+    margin-bottom: 50px;
+    border: 2px solid #bababa;
+    border-radius: 5px;
   }
-  
 `;
 
 const StyledButtonWheel = styled.button`
-  display: flex;
-  align-items: center;
   color: white;
-  background: red;
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  margin-bottom: 75px;
+  padding: 1rem 0.7rem;
+  width: 60px;
+  background-color: #ff3a33;
+  border: none;
+  border-radius: 5px;
 
   @media (min-width: 400px) {
     color: white;
-    height: 40px;
-    width: 80px;
     border-radius: 20px;
     background: red;
     display: flex;
@@ -104,45 +91,48 @@ export default function WheelContainer({
 }) {
   return (
     <StyledWheelContainer>
-      <StyledSlot>
-        <p>{showFruit(amountprint1)}</p>
-        <p>{firstIncrementFruit(amountprint1)}</p>
-        <p>{secondIncrementFruit(amountprint1)}</p>
-        <StyledBox1 />
+      <StyledSlotWrapper>
+        <StyledSlot>
+          <p>{showFruit(amountprint1)}</p>
+          <p>{firstIncrementFruit(amountprint1)}</p>
+          <p>{secondIncrementFruit(amountprint1)}</p>
+        </StyledSlot>
         <StyledButtonWheel
           onClick={() => {
             onIsActive1(false);
           }}
         >
-          Stop Wheel1
+          STOP
         </StyledButtonWheel>
-      </StyledSlot>
-      <StyledSlot>
-        <p>{showFruit(amountprint2)}</p>
-        <p>{firstIncrementFruit(amountprint2)}</p>
-        <p>{secondIncrementFruit(amountprint2)}</p>
-        <StyledBox2 />
+      </StyledSlotWrapper>
+      <StyledSlotWrapper>
+        <StyledSlot>
+          <p>{showFruit(amountprint2)}</p>
+          <p>{firstIncrementFruit(amountprint2)}</p>
+          <p>{secondIncrementFruit(amountprint2)}</p>
+        </StyledSlot>
         <StyledButtonWheel
           onClick={() => {
             onIsActive2(false);
           }}
         >
-          Stop Wheel2
+          STOP
         </StyledButtonWheel>
-      </StyledSlot>
-      <StyledSlot>
-        <p>{showFruit(amountprint3)}</p>
-        <p>{firstIncrementFruit(amountprint3)}</p>
-        <p>{secondIncrementFruit(amountprint3)}</p>
-        <StyledBox3 />
+      </StyledSlotWrapper>
+      <StyledSlotWrapper>
+        <StyledSlot>
+          <p>{showFruit(amountprint3)}</p>
+          <p>{firstIncrementFruit(amountprint3)}</p>
+          <p>{secondIncrementFruit(amountprint3)}</p>
+        </StyledSlot>
         <StyledButtonWheel
           onClick={() => {
             onIsActive3(false);
           }}
         >
-          Stop Wheel3
+          STOP
         </StyledButtonWheel>
-      </StyledSlot>
+      </StyledSlotWrapper>
     </StyledWheelContainer>
   );
 }

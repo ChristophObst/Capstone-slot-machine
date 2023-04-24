@@ -11,32 +11,40 @@ const HeadlineContainer = styled.div`
 
 const ResultContainer = styled.div`
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  gap: 1rem;
 `;
 //----------------------------------------
-const ContainerNavigation = styled.div`
+const NavigationWrapper = styled.footer`
+  position: fixed;
+  bottom: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0px 8px;
+  gap: 8px;
+  width: 100%;
+  height: 70px;
+  background-color: #8597e6;
 `;
 
-const NavigationButton = styled.button`
-  width: 10spx;
-  height: 20px;
-  background-color: gold;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
+
+const StyledMain = styled.main`
   display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export default function HomePage({
   color1,
   color2,
   color3,
-  onSpin,
-  counting,
   resultText,
   trys,
-  records,
-  storageText,
   onIsActive1,
   onIsActive2,
   onIsActive3,
@@ -48,46 +56,40 @@ export default function HomePage({
   secondIncrementFruit,
 }) {
   return (
-    <div>
+    <>
       <HeadlineContainer>
         <h1>Slot Machine</h1>
       </HeadlineContainer>
-      <WheelContainer
-        color1={color1}
-        color2={color2}
-        color3={color3}
-        amountprint1={amountprint1}
-        amountprint2={amountprint2}
-        amountprint3={amountprint3}
-        showFruit={showFruit}
-        onIsActive1={onIsActive1}
-        onIsActive2={onIsActive2}
-        onIsActive3={onIsActive3}
-        firstIncrementFruit={firstIncrementFruit}
-        secondIncrementFruit={secondIncrementFruit}
-      />
-      <ResultContainer>
-        <p>{resultText}</p>
-        <p>{trys}</p>
-      </ResultContainer>
-      <ButtonContainer
-        onIsActive1={onIsActive1}
-        onIsActive2={onIsActive2}
-        onIsActive3={onIsActive3}
-      />
-      <p>{storageText}</p>
-      <p>{records}</p>
+      <StyledMain>
+        <ResultContainer>
+          <p>{resultText}</p>
+          <p>{trys}</p>
+        </ResultContainer>
+        <WheelContainer
+          color1={color1}
+          color2={color2}
+          color3={color3}
+          amountprint1={amountprint1}
+          amountprint2={amountprint2}
+          amountprint3={amountprint3}
+          showFruit={showFruit}
+          onIsActive1={onIsActive1}
+          onIsActive2={onIsActive2}
+          onIsActive3={onIsActive3}
+          firstIncrementFruit={firstIncrementFruit}
+          secondIncrementFruit={secondIncrementFruit}
+        />
+        <ButtonContainer
+          onIsActive1={onIsActive1}
+          onIsActive2={onIsActive2}
+          onIsActive3={onIsActive3}
+        />
 
-      <Link href={"/navigation"}>
-        <ContainerNavigation>
-          <NavigationButton>jump to records page</NavigationButton>
-        </ContainerNavigation>
-      </Link>
-      <Link href={"/commentary"}>
-        <ContainerNavigation>
-          <NavigationButton>jump to commentary page</NavigationButton>
-        </ContainerNavigation>
-      </Link>
-    </div>
+        <NavigationWrapper>
+          <StyledLink href={"/navigation"}>records</StyledLink>
+          <StyledLink href={"/commentary"}>commentary</StyledLink>
+        </NavigationWrapper>
+      </StyledMain>
+    </>
   );
 }
