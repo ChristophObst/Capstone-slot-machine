@@ -144,11 +144,11 @@ export default function App({ Component, pageProps }) {
   }
 
   //-----------------------------------------------------------------------------------------------dependencies need to be fixed:
-  useEffect(() => {
+  /*   useEffect(() => {
     setTrys(trys);
     checkIfDefault();
     checkStatusSpin();
-  }, [isActive3 || isActive2 || isActive1]);
+  }, [isActive3 || isActive2 || isActive1]); */
 
   useEffect(() => {
     setHasMounted(true);
