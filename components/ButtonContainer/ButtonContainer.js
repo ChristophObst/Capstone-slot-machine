@@ -3,22 +3,16 @@ import styled from "styled-components";
 const StyledButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100px;
-  align-items: center;
-  gap: 10px;
+  gap: 1rem;
+  margin-top: 2rem;
 `;
 //--------
-const StyledButtonWheel = styled.button`
-  display: flex;
-  height: 25px;
-  align-items: center;
-  background: green;
+const StyledButtonWheelStart = styled.button`
   color: white;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 1rem 0.7rem;
+  background-color: #39bf68;
+  border: none;
+  border-radius: 5px;
 
   @media (min-width: 400px) {
     background: green;
@@ -35,14 +29,11 @@ const StyledButtonWheel = styled.button`
 `;
 
 const StyledButtonWheelStop = styled.button`
-  display: flex;
-  height: 25px;
-  align-items: center;
-  background: red;
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 1rem 0.7rem;
+  background-color: #ff3a33;
+  border: none;
+  border-radius: 5px;
 
   @media (min-width: 400px) {
     background: red;
@@ -71,17 +62,17 @@ export default function ButtonContainer({
           onIsActive3(false);
         }}
       >
-        Stop all Wheels
+        STOP ALL
       </StyledButtonWheelStop>
-      <StyledButtonWheel
+      <StyledButtonWheelStart
         onClick={() => {
           onIsActive1(true);
           onIsActive2(true);
           onIsActive3(true);
         }}
       >
-        Start Game
-      </StyledButtonWheel>
+        START GAME
+      </StyledButtonWheelStart>
     </StyledButtonContainer>
   );
 }
