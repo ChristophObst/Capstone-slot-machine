@@ -2,6 +2,12 @@ import WheelContainer from "../components/WheelContainer/WheelContainer";
 import styled from "styled-components";
 import ButtonContainer from "../components/ButtonContainer/ButtonContainer";
 import Link from "next/link";
+import CommentaryList from "../components/CommentaryList";
+
+const Heading = styled.h1`
+  text-align: center;
+  color: var(--color-nemo);
+`;
 
 const HeadlineContainer = styled.div`
   display: flex;
@@ -60,6 +66,7 @@ export default function HomePage({
       <HeadlineContainer>
         <h1>Slot Machine</h1>
       </HeadlineContainer>
+
       <StyledMain>
         <ResultContainer>
           <p>{resultText}</p>
