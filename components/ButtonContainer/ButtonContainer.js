@@ -6,7 +6,7 @@ const StyledButtonContainer = styled.div`
   gap: 1rem;
   margin-top: 1.5rem;
 `;
-//--------------...
+
 const StyledButtonWheelStart = styled.button`
   color: white;
   padding: 1rem 0.7rem;
@@ -16,7 +16,7 @@ const StyledButtonWheelStart = styled.button`
   &:hover {
     transform: scale(1.1);
   }
-  @media (min-width: 400px) {
+  @media (min-width: 414px) {
     background: green;
     color: white;
     font-weight: bold;
@@ -40,7 +40,7 @@ const StyledButtonWheelStop = styled.button`
     transform: scale(1.1);
   }
 
-  @media (min-width: 400px) {
+  @media (min-width: 414px) {
     background: red;
     color: white;
     height: 80px;

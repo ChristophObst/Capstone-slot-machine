@@ -22,12 +22,12 @@ const StyledSlot = styled.div`
   border: 1px solid #bababa;
   border-radius: 5px;
   background-color: #f8f8f8;
-  @media (min-width: 400px) {
-    font-size: 150%;
+  @media (min-width: 414px) {
+    font-size: 175%;
     border-radius: 30px;
     background-color: #f8f8f8;
     display: flex;
-    width: 80%;
+    width: 7.5rem;
     height: 280px;
     align-items: center;
     margin-bottom: 50px;
@@ -35,7 +35,7 @@ const StyledSlot = styled.div`
     border-radius: 5px;
   }
   @media (min-width: 700px) {
-    font-size: 250%;
+    font-size: 275%;
     border-radius: 30px;
     background-color: #f8f8f8;
     display: flex;
@@ -46,6 +46,16 @@ const StyledSlot = styled.div`
     border: 2px solid #bababa;
     border-radius: 5px;
   }
+`;
+
+const StyledParagraph = styled.div`
+  font-size: 150%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 33.33%;
+  overflow: hidden;
 `;
 
 const StyledButtonWheel = styled.button`
@@ -59,7 +69,7 @@ const StyledButtonWheel = styled.button`
     transform: scale(1.1);
   }
 
-  @media (min-width: 400px) {
+  @media (min-width: 414px) {
     color: white;
     border-radius: 20px;
     background: red;
@@ -95,9 +105,11 @@ export default function WheelContainer({
     <StyledWheelContainer>
       <StyledSlotWrapper>
         <StyledSlot>
-          <p>{showFruit(amountprint1)}</p>
-          <p>{firstIncrementFruit(amountprint1)}</p>
-          <p>{secondIncrementFruit(amountprint1)}</p>
+          <StyledParagraph>{showFruit(amountprint1)}</StyledParagraph>
+          <StyledParagraph>{firstIncrementFruit(amountprint1)}</StyledParagraph>
+          <StyledParagraph>
+            {secondIncrementFruit(amountprint1)}
+          </StyledParagraph>
         </StyledSlot>
         <StyledButtonWheel
           onClick={() => {
@@ -109,9 +121,11 @@ export default function WheelContainer({
       </StyledSlotWrapper>
       <StyledSlotWrapper>
         <StyledSlot>
-          <p>{showFruit(amountprint2)}</p>
-          <p>{firstIncrementFruit(amountprint2)}</p>
-          <p>{secondIncrementFruit(amountprint2)}</p>
+          <StyledParagraph>{showFruit(amountprint2)}</StyledParagraph>
+          <StyledParagraph>{firstIncrementFruit(amountprint2)}</StyledParagraph>
+          <StyledParagraph>
+            {secondIncrementFruit(amountprint2)}
+          </StyledParagraph>
         </StyledSlot>
         <StyledButtonWheel
           onClick={() => {
@@ -123,9 +137,11 @@ export default function WheelContainer({
       </StyledSlotWrapper>
       <StyledSlotWrapper>
         <StyledSlot>
-          <p>{showFruit(amountprint3)}</p>
-          <p>{firstIncrementFruit(amountprint3)}</p>
-          <p>{secondIncrementFruit(amountprint3)}</p>
+          <StyledParagraph>{showFruit(amountprint3)}</StyledParagraph>
+          <StyledParagraph>{firstIncrementFruit(amountprint3)}</StyledParagraph>
+          <StyledParagraph>
+            {secondIncrementFruit(amountprint3)}
+          </StyledParagraph>
         </StyledSlot>
         <StyledButtonWheel
           onClick={() => {
