@@ -15,6 +15,7 @@ const StyledButtonWheelStart = styled.button`
   background-color: #39bf68;
   border: none;
   border-radius: 5px;
+  box-shadow: 5px 10px #888888;
   &:hover {
     transform: scale(1.1);
   }
@@ -31,6 +32,7 @@ const StyledButtonWheelStop = styled.button`
   background-color: #ff3a33;
   border: none;
   border-radius: 5px;
+  box-shadow: 5px 10px #888888;
   &:hover {
     transform: scale(1.1);
   }
