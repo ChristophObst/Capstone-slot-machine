@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledWheelContainer = styled.div`
   display: flex;
-  gap: 1rem;
+  /* gap: 1rem; */
 `;
 
 const StyledSlotWrapper = styled.div`
@@ -30,21 +30,13 @@ const StyledSlot = styled.div`
     width: 7.5rem;
     height: 280px;
     align-items: center;
-    margin-bottom: 50px;
     border: 1px solid #bababa;
     border-radius: 5px;
   }
   @media (min-width: 700px) {
-    font-size: 275%;
-    border-radius: 30px;
-    background-color: #f8f8f8;
-    display: flex;
-    width: 80%;
-    height: 440px;
-    align-items: center;
-    margin-bottom: 50px;
-    border: 2px solid #bababa;
-    border-radius: 5px;
+    font-size: 350%;
+    width: 9.5rem;
+    height: 380px;
   }
 `;
 
@@ -68,25 +60,9 @@ const StyledButtonWheel = styled.button`
   &:hover {
     transform: scale(1.1);
   }
-
   @media (min-width: 414px) {
-    color: white;
-    border-radius: 20px;
-    background: red;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 75px;
-  }
-
-  @media (min-width: 700px) {
-    color: white;
-    border-radius: 20px;
-    background: red;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 75px;
+    width: 70px;
+    height: 50px;
   }
 `;
 

@@ -5,6 +5,8 @@ const StyledButtonContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   margin-top: 1.5rem;
+  @media (min-width: 414px) {
+    margin-top: 1.5rem;
 `;
 
 const StyledButtonWheelStart = styled.button`
@@ -17,16 +19,9 @@ const StyledButtonWheelStart = styled.button`
     transform: scale(1.1);
   }
   @media (min-width: 414px) {
-    background: green;
-    color: white;
-    font-weight: bold;
-    height: 80px;
-    width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    font-size: 100%;
+    margin-top: 0.4rem;
+    width: 120px;
+    heigth: 80px;
   }
 `;
 
@@ -41,15 +36,6 @@ const StyledButtonWheelStop = styled.button`
   }
 
   @media (min-width: 414px) {
-    background: red;
-    color: white;
-    height: 80px;
-    width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    font-size: 100%;
   }
 `;
 

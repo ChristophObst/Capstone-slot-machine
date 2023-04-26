@@ -2,6 +2,15 @@ import Link from "next/link";
 import styled from "styled-components";
 import useSWR from "swr";
 
+const StyledHeadlineContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  color: white;
+  background-color: #8597e6;
+  margin-bottom: 10px;
+`;
+
 const StyledFormular = styled.div`
   font-weight: 900;
   margin-left: 1rem;
@@ -25,6 +34,13 @@ const StyledButton = styled.button`
 
 const StyledComment = styled.div`
   display: flex;
+  font-weight: 900;
+`;
+
+const StyledEmoji = styled.span`
+  font-size: 100%;
+  display: flex;
+  flex-direction:
   font-weight: 900;
 `;
 
@@ -55,12 +71,14 @@ const StyledList = styled.div`
   height: 403px;
   overflow: auto;
   @media (min-width: 414px) {
-    background-color: blue;
     height: 630px;
 `;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 120%;
   bottom: 0;
   display: flex;
   flex-direction: row;
@@ -75,6 +93,8 @@ const StyledLink = styled(Link)`
 
 const NavigationWrapper = styled.footer`
   position: fixed;
+  color: white;
+  font-weight: bold;
   bottom: 0;
   display: flex;
   flex-direction: row;
@@ -119,7 +139,9 @@ export default function Navigation() {
 
   return (
     <>
-      <h2>Commentaries</h2>
+      <StyledHeadlineContainer>
+        <h1>Commentaries</h1>
+      </StyledHeadlineContainer>
       <StyledFormular>
         <form onSubmit={handleSubmit}>
           <StyledLabel htmlFor="name">Username</StyledLabel>
@@ -140,7 +162,9 @@ export default function Navigation() {
             />
           </StyledComment>
 
-          <StyledButton type="submit">submit</StyledButton>
+          <StyledButton type="submit">
+            <StyledEmoji>💾 Submit</StyledEmoji>
+          </StyledButton>
         </form>
       </StyledFormular>
       <StyledList>
@@ -158,8 +182,8 @@ export default function Navigation() {
         </div>
       </StyledList>
       <NavigationWrapper>
-        <StyledLink href={"/"}> Home </StyledLink>
-        <StyledLink href={"/navigation"}>records</StyledLink>
+        <StyledLink href={"/"}>🏠 Home </StyledLink>
+        <StyledLink href={"/navigation"}>📼 records</StyledLink>
       </NavigationWrapper>
     </>
   );
