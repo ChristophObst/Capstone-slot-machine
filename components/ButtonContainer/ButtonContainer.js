@@ -6,7 +6,7 @@ const StyledButtonContainer = styled.div`
   gap: 1rem;
   margin-top: 1.5rem;
 `;
-//--------
+//-----------
 const StyledButtonWheelStart = styled.button`
   color: white;
   padding: 1rem 0.7rem;
