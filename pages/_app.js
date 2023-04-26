@@ -3,7 +3,7 @@ import useLocalStorageState from "use-local-storage-state";
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 
-//-------------
+//----------------
 
 const fetcher = async (url) => {
   const res = await fetch(url);
