@@ -3,7 +3,6 @@ import styled from "styled-components";
 const StyledWheelContainer = styled.div`
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
 `;
 
 const StyledSlotWrapper = styled.div`
@@ -14,12 +13,12 @@ const StyledSlotWrapper = styled.div`
 `;
 
 const StyledSlot = styled.div`
+  font-size: 150%;
   display: flex;
-  height: 200px;
+  height: 240px;
   width: 6rem;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   border: 1px solid #bababa;
   border-radius: 5px;
   background-color: #f8f8f8;
@@ -56,6 +55,9 @@ const StyledButtonWheel = styled.button`
   background-color: #ff3a33;
   border: none;
   border-radius: 5px;
+  &:hover {
+    transform: scale(1.1);
+  }
 
   @media (min-width: 400px) {
     color: white;

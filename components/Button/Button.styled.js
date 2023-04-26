@@ -1,4 +1,4 @@
-import styled from "styled-components";
+/* import styled from "styled-components";
 
 export const StyledButton = styled.button`
   appearance: none;
@@ -11,3 +11,4 @@ export const StyledButton = styled.button`
     cursor: pointer;
   }
 `;
+ */

@@ -2,7 +2,6 @@ import WheelContainer from "../components/WheelContainer/WheelContainer";
 import styled from "styled-components";
 import ButtonContainer from "../components/ButtonContainer/ButtonContainer";
 import Link from "next/link";
-import CommentaryList from "../components/CommentaryList";
 
 const Heading = styled.h1`
   text-align: center;
@@ -19,7 +18,7 @@ const ResultContainer = styled.div`
   display: flex;
   gap: 1rem;
 `;
-//----------------------------------------
+
 const NavigationWrapper = styled.footer`
   position: fixed;
   bottom: 0;
@@ -36,7 +35,16 @@ const NavigationWrapper = styled.footer`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: black;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0px 8px;
+  gap: 8px;
+  width: 50%;
+  height: 70px;
+  background-color: #8597e6;
 `;
 
 const StyledMain = styled.main`
@@ -64,7 +72,7 @@ export default function HomePage({
   return (
     <>
       <HeadlineContainer>
-        <h1>Slot Machine</h1>
+        <h1>Fruit Frenzy Slots</h1>
       </HeadlineContainer>
 
       <StyledMain>

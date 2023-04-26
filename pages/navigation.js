@@ -26,7 +26,7 @@ export default function Navigation({ clearStorage, userName }) {
           clearStorage();
         }}
       >
-        clear Storage
+        Reset Records
       </StyledButton>
 
       <div>
