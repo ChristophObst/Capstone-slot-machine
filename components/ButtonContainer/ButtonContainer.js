@@ -4,16 +4,18 @@ const StyledButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 `;
-//--------
+//--------------...
 const StyledButtonWheelStart = styled.button`
   color: white;
   padding: 1rem 0.7rem;
   background-color: #39bf68;
   border: none;
   border-radius: 5px;
-
+  &:hover {
+    transform: scale(1.1);
+  }
   @media (min-width: 400px) {
     background: green;
     color: white;
@@ -34,6 +36,9 @@ const StyledButtonWheelStop = styled.button`
   background-color: #ff3a33;
   border: none;
   border-radius: 5px;
+  &:hover {
+    transform: scale(1.1);
+  }
 
   @media (min-width: 400px) {
     background: red;
