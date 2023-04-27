@@ -66,7 +66,7 @@ export default function App({ Component, pageProps }) {
     if (!checkFruits && !isActive1 && !isActive2 && !isActive3) {
       return "wait to start";
     }
-    if (isActive1 && isActive2 && isActive3) {
+    if (isActive1 || isActive2 || isActive3) {
       return "spinning...";
     }
     if (checkFruits) {
