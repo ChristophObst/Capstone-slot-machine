@@ -119,6 +119,7 @@ export default function Navigation() {
 
     const formData = new FormData(event.target);
     const commentData = Object.fromEntries(formData);
+    alert("Comment Submitted!");
     console.log(commentData);
     const response = await fetch("/api/commentary", {
       method: "POST",
