@@ -115,7 +115,7 @@ export default function Navigation({ clearStorage, userName }) {
       </StyledButton>
       <NavigationWrapper>
         <StyledLink href={"/"}>🏠 Home</StyledLink>
-        <StyledLink href={"/commentary"}>🧾 Commentaries</StyledLink>
+        <StyledLink href={"/commentary"}>🧾 Comments</StyledLink>
       </NavigationWrapper>
     </>
   );

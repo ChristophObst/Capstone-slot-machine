@@ -140,7 +140,7 @@ export default function Navigation() {
   return (
     <>
       <StyledHeadlineContainer>
-        <h1>Commentaries</h1>
+        <h1>Comments</h1>
       </StyledHeadlineContainer>
       <StyledFormular>
         <form onSubmit={handleSubmit}>
@@ -183,7 +183,7 @@ export default function Navigation() {
       </StyledList>
       <NavigationWrapper>
         <StyledLink href={"/"}>🏠 Home </StyledLink>
-        <StyledLink href={"/navigation"}>📼 records</StyledLink>
+        <StyledLink href={"/navigation"}>📼 Records</StyledLink>
       </NavigationWrapper>
     </>
   );

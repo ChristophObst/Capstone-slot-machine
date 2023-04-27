@@ -108,7 +108,7 @@ export default function HomePage({
 
         <NavigationWrapper>
           <StyledLink href={"/navigation"}>📼 Records</StyledLink>
-          <StyledLink href={"/commentary"}>🧾 Commentaries</StyledLink>
+          <StyledLink href={"/commentary"}>🧾 Comments</StyledLink>
         </NavigationWrapper>
       </StyledMain>
     </>
