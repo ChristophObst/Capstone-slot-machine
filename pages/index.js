@@ -19,7 +19,21 @@ const HeadlineContainer = styled.div`
 
 const ResultContainer = styled.div`
   display: flex;
-  gap: 1rem;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  height: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  background-color: #f8f8f8;
+
+  border-radius: 10px;
+  border-radius: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
 `;
 
 const NavigationWrapper = styled.footer`
