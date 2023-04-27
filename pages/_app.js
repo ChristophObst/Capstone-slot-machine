@@ -33,9 +33,9 @@ export default function App({ Component, pageProps }) {
     }
     if (
       (storage.length >= 5 && storage[1]) ||
-      storage[2] ||
-      storage[3] ||
-      storage[4] > trys
+      (storage.length >= 5 && storage[2]) ||
+      (storage.length >= 5 && storage[3]) ||
+      (storage.length >= 5 && storage[4] > trys)
     ) {
       setStorage([...storage.slice(1, 5), trys]);
     }
