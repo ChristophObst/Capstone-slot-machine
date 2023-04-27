@@ -68,10 +68,10 @@ const StyledSpan = styled.div``;
 
 const StyledList = styled.div`
 
-  height: 403px;
+  height: 340px;
   overflow: auto;
   @media (min-width: 414px) {
-    height: 630px;
+    height: 570px;
 `;
 
 const StyledLink = styled(Link)`
@@ -136,6 +136,7 @@ export default function Navigation() {
     } else {
       console.error(`Error: ${response.status}`);
     }
+    event.target.reset();
   }
 
   return (
