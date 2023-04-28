@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledWheelContainer = styled.div`
   display: flex;
-  gap: 1rem;
+  /* gap: 1rem; */
 `;
 
 const StyledSlotWrapper = styled.div`
@@ -22,30 +22,32 @@ const StyledSlot = styled.div`
   border: 1px solid #bababa;
   border-radius: 5px;
   background-color: #f8f8f8;
-  @media (min-width: 400px) {
-    font-size: 150%;
+  @media (min-width: 414px) {
+    font-size: 175%;
     border-radius: 30px;
     background-color: #f8f8f8;
     display: flex;
-    width: 80%;
+    width: 7.5rem;
     height: 280px;
     align-items: center;
-    margin-bottom: 50px;
     border: 1px solid #bababa;
     border-radius: 5px;
   }
   @media (min-width: 700px) {
-    font-size: 250%;
-    border-radius: 30px;
-    background-color: #f8f8f8;
-    display: flex;
-    width: 80%;
-    height: 440px;
-    align-items: center;
-    margin-bottom: 50px;
-    border: 2px solid #bababa;
-    border-radius: 5px;
+    font-size: 350%;
+    width: 9.5rem;
+    height: 380px;
   }
+`;
+
+const StyledParagraph = styled.div`
+  font-size: 150%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 33.33%;
+  overflow: hidden;
 `;
 
 const StyledButtonWheel = styled.button`
@@ -55,28 +57,13 @@ const StyledButtonWheel = styled.button`
   background-color: #ff3a33;
   border: none;
   border-radius: 5px;
+  box-shadow: 5px 10px #888888;
   &:hover {
     transform: scale(1.1);
   }
-
-  @media (min-width: 400px) {
-    color: white;
-    border-radius: 20px;
-    background: red;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 75px;
-  }
-
-  @media (min-width: 700px) {
-    color: white;
-    border-radius: 20px;
-    background: red;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 75px;
+  @media (min-width: 414px) {
+    width: 70px;
+    height: 50px;
   }
 `;
 
@@ -95,9 +82,11 @@ export default function WheelContainer({
     <StyledWheelContainer>
       <StyledSlotWrapper>
         <StyledSlot>
-          <p>{showFruit(amountprint1)}</p>
-          <p>{firstIncrementFruit(amountprint1)}</p>
-          <p>{secondIncrementFruit(amountprint1)}</p>
+          <StyledParagraph>{showFruit(amountprint1)}</StyledParagraph>
+          <StyledParagraph>{firstIncrementFruit(amountprint1)}</StyledParagraph>
+          <StyledParagraph>
+            {secondIncrementFruit(amountprint1)}
+          </StyledParagraph>
         </StyledSlot>
         <StyledButtonWheel
           onClick={() => {
@@ -109,9 +98,11 @@ export default function WheelContainer({
       </StyledSlotWrapper>
       <StyledSlotWrapper>
         <StyledSlot>
-          <p>{showFruit(amountprint2)}</p>
-          <p>{firstIncrementFruit(amountprint2)}</p>
-          <p>{secondIncrementFruit(amountprint2)}</p>
+          <StyledParagraph>{showFruit(amountprint2)}</StyledParagraph>
+          <StyledParagraph>{firstIncrementFruit(amountprint2)}</StyledParagraph>
+          <StyledParagraph>
+            {secondIncrementFruit(amountprint2)}
+          </StyledParagraph>
         </StyledSlot>
         <StyledButtonWheel
           onClick={() => {
@@ -123,9 +114,11 @@ export default function WheelContainer({
       </StyledSlotWrapper>
       <StyledSlotWrapper>
         <StyledSlot>
-          <p>{showFruit(amountprint3)}</p>
-          <p>{firstIncrementFruit(amountprint3)}</p>
-          <p>{secondIncrementFruit(amountprint3)}</p>
+          <StyledParagraph>{showFruit(amountprint3)}</StyledParagraph>
+          <StyledParagraph>{firstIncrementFruit(amountprint3)}</StyledParagraph>
+          <StyledParagraph>
+            {secondIncrementFruit(amountprint3)}
+          </StyledParagraph>
         </StyledSlot>
         <StyledButtonWheel
           onClick={() => {

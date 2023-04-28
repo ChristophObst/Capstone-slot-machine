@@ -5,28 +5,24 @@ const StyledButtonContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   margin-top: 1.5rem;
+  @media (min-width: 414px) {
+    margin-top: 1.5rem;
 `;
-//--------------...
+
 const StyledButtonWheelStart = styled.button`
   color: white;
   padding: 1rem 0.7rem;
   background-color: #39bf68;
   border: none;
   border-radius: 5px;
+  box-shadow: 5px 10px #888888;
   &:hover {
     transform: scale(1.1);
   }
-  @media (min-width: 400px) {
-    background: green;
-    color: white;
-    font-weight: bold;
-    height: 80px;
-    width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    font-size: 100%;
+  @media (min-width: 414px) {
+    margin-top: 0.4rem;
+    width: 120px;
+    heigth: 80px;
   }
 `;
 
@@ -36,20 +32,12 @@ const StyledButtonWheelStop = styled.button`
   background-color: #ff3a33;
   border: none;
   border-radius: 5px;
+  box-shadow: 5px 10px #888888;
   &:hover {
     transform: scale(1.1);
   }
 
-  @media (min-width: 400px) {
-    background: red;
-    color: white;
-    height: 80px;
-    width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
-    font-size: 100%;
+  @media (min-width: 414px) {
   }
 `;
 

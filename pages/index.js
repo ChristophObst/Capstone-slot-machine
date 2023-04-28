@@ -2,6 +2,7 @@ import WheelContainer from "../components/WheelContainer/WheelContainer";
 import styled from "styled-components";
 import ButtonContainer from "../components/ButtonContainer/ButtonContainer";
 import Link from "next/link";
+import { SvgHouse } from "../utils/icons";
 
 const Heading = styled.h1`
   text-align: center;
@@ -12,15 +13,32 @@ const HeadlineContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 10px;
+  color: white;
+  background-color: #8597e6;
 `;
 
 const ResultContainer = styled.div`
   display: flex;
-  gap: 1rem;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  height: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  background-color: #f8f8f8;
+
+  border-radius: 10px;
+  border-radius: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
 `;
 
 const NavigationWrapper = styled.footer`
   position: fixed;
+  font-weight: bold;
   bottom: 0;
   display: flex;
   flex-direction: row;
@@ -34,8 +52,10 @@ const NavigationWrapper = styled.footer`
 `;
 
 const StyledLink = styled(Link)`
+  font-size: 120%;
   text-decoration: none;
   bottom: 0;
+  color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -101,8 +121,8 @@ export default function HomePage({
         />
 
         <NavigationWrapper>
-          <StyledLink href={"/navigation"}>records</StyledLink>
-          <StyledLink href={"/commentary"}>commentary</StyledLink>
+          <StyledLink href={"/navigation"}>📼 Records</StyledLink>
+          <StyledLink href={"/commentary"}>🧾 Comments</StyledLink>
         </NavigationWrapper>
       </StyledMain>
     </>

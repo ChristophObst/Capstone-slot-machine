@@ -2,15 +2,34 @@ import Link from "next/link";
 import styled from "styled-components";
 import useSWR from "swr";
 
-const StyledButton = styled.button`
-  width: 300px;
-  height: 60px;
-  background-color: gold;
-  font-weight: 900;
+const StyledHeadlineContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  color: white;
+  background-color: #8597e6;
+  margin-bottom: 10px;
 `;
 
 const StyledFormular = styled.div`
   font-weight: 900;
+  margin-left: 1rem;
+  margin-bottom: 10px;
+`;
+
+const StyledButton = styled.button`
+  text-decoration: none;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0px 8px;
+  gap: 8px;
+  width: 30%;
+  height: 30px;
+  background-color: #e6e15b;
+  margin-top: 1rem;
 `;
 
 const StyledComment = styled.div`
@@ -18,9 +37,77 @@ const StyledComment = styled.div`
   font-weight: 900;
 `;
 
-const StyledList = styled.div`
-  margin-top: 80px;
+const StyledEmoji = styled.span`
+  font-size: 100%;
+  display: flex;
+  flex-direction:
+  font-weight: 900;
 `;
+
+const StyledOutput = styled.div`
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
+  align-content: flex-end;
+  width: 90%;
+  min-height: 80px;
+  max-height: 160px;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  background-color: #f8f8f8;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-radius: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+  overflow: auto;
+`;
+
+const StyledHeadline = styled.div``;
+
+const StyledSpan = styled.div``;
+
+const StyledList = styled.div`
+
+  height: 340px;
+  overflow: auto;
+  @media (min-width: 414px) {
+    height: 570px;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 120%;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0px 8px;
+  gap: 8px;
+  width: 50%;
+  height: 70px;
+  background-color: #8597e6;
+`;
+
+const NavigationWrapper = styled.footer`
+  position: fixed;
+  color: white;
+  font-weight: bold;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0px 8px;
+  gap: 8px;
+  width: 100%;
+  height: 70px;
+  background-color: #8597e6;
+`;
+
+const StyledLabel = styled.div``;
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -32,6 +119,7 @@ export default function Navigation() {
 
     const formData = new FormData(event.target);
     const commentData = Object.fromEntries(formData);
+    alert("Comment Submitted!");
     console.log(commentData);
     const response = await fetch("/api/commentary", {
       method: "POST",
@@ -48,23 +136,37 @@ export default function Navigation() {
     } else {
       console.error(`Error: ${response.status}`);
     }
+    event.target.reset();
   }
 
   return (
     <>
-      <Link href={"/"}>
-        <StyledButton>Home</StyledButton>
-      </Link>
+      <StyledHeadlineContainer>
+        <h1>Comments</h1>
+      </StyledHeadlineContainer>
       <StyledFormular>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Username</label>
-          <input id="name" name="name" type="text" required />
-          <label htmlFor="text"></label>
+          <StyledLabel htmlFor="name">Username</StyledLabel>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            style={{ width: "150px" }}
+            required
+          />
+          <StyledLabel htmlFor="text"> Comment</StyledLabel>
           <StyledComment>
-            <p>Comment</p>
-            <textarea id="text" name="text" required />
+            <textarea
+              id="text"
+              name="text"
+              style={{ width: "150px" }}
+              required
+            />
           </StyledComment>
-          <button type="submit">submit</button>
+
+          <StyledButton type="submit">
+            <StyledEmoji>💾 Submit</StyledEmoji>
+          </StyledButton>
         </form>
       </StyledFormular>
       <StyledList>
@@ -73,14 +175,18 @@ export default function Navigation() {
             !error &&
             data.map((entry) => {
               return (
-                <div key={entry._id}>
-                  <h3>{entry.name}</h3>
-                  <p>{entry.text}</p>
-                </div>
+                <StyledOutput key={entry._id}>
+                  <StyledHeadline>{entry.name}</StyledHeadline>
+                  <StyledSpan>{entry.text}</StyledSpan>
+                </StyledOutput>
               );
             })}
         </div>
       </StyledList>
+      <NavigationWrapper>
+        <StyledLink href={"/"}>🏠 Home </StyledLink>
+        <StyledLink href={"/navigation"}>📼 Records</StyledLink>
+      </NavigationWrapper>
     </>
   );
 }

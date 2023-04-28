@@ -33,9 +33,9 @@ export default function App({ Component, pageProps }) {
     }
     if (
       (storage.length >= 5 && storage[1]) ||
-      storage[2] ||
-      storage[3] ||
-      storage[4] > trys
+      (storage.length >= 5 && storage[2]) ||
+      (storage.length >= 5 && storage[3]) ||
+      (storage.length >= 5 && storage[4] > trys)
     ) {
       setStorage([...storage.slice(1, 5), trys]);
     }
@@ -66,7 +66,7 @@ export default function App({ Component, pageProps }) {
     if (!checkFruits && !isActive1 && !isActive2 && !isActive3) {
       return "wait to start";
     }
-    if (isActive1 && isActive2 && isActive3) {
+    if (isActive1 || isActive2 || isActive3) {
       return "spinning...";
     }
     if (checkFruits) {
@@ -145,7 +145,6 @@ export default function App({ Component, pageProps }) {
     }
   }
 
-  //-----------------------------------------------------------------------------------------------dependencies need to be fixed:
   useEffect(() => {
     setTrys(trys);
     checkIfDefault();
