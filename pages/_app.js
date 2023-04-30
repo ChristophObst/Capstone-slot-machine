@@ -47,6 +47,12 @@ export default function App({ Component, pageProps }) {
 
   const [counter, setCounter] = useState(0);
 
+  const [counter1, setCounter1] = useState(() => 0);
+  const [counter2, setCounter2] = useState(() => 0);
+  const [counter3, setCounter3] = useState(() => 0);
+  let c = counter2;
+  console.log((counter2 % 3) + 1)
+
   const [amountprint1, setAmountPrint1] = useState(1);
   const [amountprint2, setAmountPrint2] = useState(2);
   const [amountprint3, setAmountPrint3] = useState(3);
@@ -113,7 +119,7 @@ export default function App({ Component, pageProps }) {
     let interval;
     if (isActive1 === true) {
       interval = setInterval(() => {
-        setAmountPrint1(randomIntFromInterval(1, 3));
+        setCounter1(prev => prev + 1)
       }, 100);
     }
     return () => clearInterval(interval);
@@ -123,7 +129,7 @@ export default function App({ Component, pageProps }) {
     let interval;
     if (isActive2 === true) {
       interval = setInterval(() => {
-        setAmountPrint2(randomIntFromInterval(1, 3));
+        setCounter2(prev => prev + 1);
       }, 500);
     }
     return () => clearInterval(interval);
@@ -133,11 +139,28 @@ export default function App({ Component, pageProps }) {
     let interval;
     if (isActive3 === true) {
       interval = setInterval(() => {
-        setAmountPrint3(randomIntFromInterval(1, 3));
-      }, 500);
+        setCounter3(prev => prev + 1)
+      }, 750);
     }
     return () => clearInterval(interval);
   }, [isActive3]);
+
+  useEffect(() => {
+    setAmountPrint1((counter1 % 3) + 1);
+  }, [counter1]);
+
+  useEffect(() => {
+    setAmountPrint2((counter2 % 3) + 1);
+  }, [counter2]);
+
+  useEffect(() => {
+    setAmountPrint3((counter3 % 3) + 1);
+  }, [counter3]);
+
+  function updateStatePlus(state) {
+    state = state + 1
+    return state
+  }
 
   function loosing() {
     if (!checkFruits && !isActive3 && !isActive1 && !isActive2) {
