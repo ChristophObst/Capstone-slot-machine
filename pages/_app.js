@@ -47,6 +47,10 @@ export default function App({ Component, pageProps }) {
 
   const [counter, setCounter] = useState(0);
 
+  const [counter1, setCounter1] = useState(() => 0);
+  const [counter2, setCounter2] = useState(() => 1);
+  const [counter3, setCounter3] = useState(() => 0);
+
   const [amountprint1, setAmountPrint1] = useState(1);
   const [amountprint2, setAmountPrint2] = useState(2);
   const [amountprint3, setAmountPrint3] = useState(3);
@@ -119,15 +123,29 @@ export default function App({ Component, pageProps }) {
     return () => clearInterval(interval);
   }, [isActive1]);
 
+  /*   if (isActive2 === true) {
+    interval = setInterval(() => {        
+        if (counter2 === 0) {
+          setCounter2(3)}
+        else 
+         setCounter2((prev) => prev - 1)  */
+
   useEffect(() => {
-    let interval;
-    if (isActive2 === true) {
-      interval = setInterval(() => {
-        setAmountPrint2(randomIntFromInterval(1, 3));
+    while (isActive2 === true) {
+      const interval = setInterval(() => {
+        if (counter2 === 3) {
+          setCounter(1);
+        } else {
+          setCounter2((prev) => prev + 1);
+        }
+        console.log(interval);
       }, 500);
     }
     return () => clearInterval(interval);
-  }, [isActive2]);
+  }, [isActive2, counter2]);
+
+  /*  console.log("mainScope", counter2);
+  console.log((counter2 % 3) + 1); */
 
   useEffect(() => {
     let interval;
@@ -138,6 +156,14 @@ export default function App({ Component, pageProps }) {
     }
     return () => clearInterval(interval);
   }, [isActive3]);
+
+  /*   useEffect(() => {
+    setAmountPrint2((counter2 % 3) + 1);
+  }, [counter2]); */
+
+  //1 -> rest: 2 -> 3
+  //2 -> rest: 1 -> 2
+  //3 -> rest: 0 -> 1
 
   function loosing() {
     if (!checkFruits && !isActive3 && !isActive1 && !isActive2) {
