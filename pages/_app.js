@@ -131,18 +131,17 @@ export default function App({ Component, pageProps }) {
          setCounter2((prev) => prev - 1)  */
 
   useEffect(() => {
-    while (isActive2 === true) {
+    while (isActive2) {
       const interval = setInterval(() => {
-        if (counter2 === 3) {
-          setCounter(1);
+        if (amountprint2 === 1) {
+          setAmountPrint2(3);
         } else {
-          setCounter2((prev) => prev + 1);
+          setAmountPrint2((prev) => prev - 1);
         }
-        console.log(interval);
       }, 500);
+      return () => clearInterval(interval);
     }
-    return () => clearInterval(interval);
-  }, [isActive2, counter2]);
+  }, [isActive2, amountprint2]);
 
   /*  console.log("mainScope", counter2);
   console.log((counter2 % 3) + 1); */
