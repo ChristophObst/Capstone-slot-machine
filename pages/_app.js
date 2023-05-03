@@ -47,10 +47,6 @@ export default function App({ Component, pageProps }) {
 
   const [counter, setCounter] = useState(0);
 
-  const [counter1, setCounter1] = useState(() => 0);
-  const [counter2, setCounter2] = useState(() => 1);
-  const [counter3, setCounter3] = useState(() => 0);
-
   const [amountprint1, setAmountPrint1] = useState(1);
   const [amountprint2, setAmountPrint2] = useState(2);
   const [amountprint3, setAmountPrint3] = useState(3);
@@ -114,21 +110,17 @@ export default function App({ Component, pageProps }) {
     : null;
 
   useEffect(() => {
-    let interval;
-    if (isActive1 === true) {
-      interval = setInterval(() => {
-        setAmountPrint1(randomIntFromInterval(1, 3));
+    while (isActive1) {
+      const interval = setInterval(() => {
+        if (amountprint1 === 1) {
+          setAmountPrint1(3);
+        } else {
+          setAmountPrint1((prev) => prev - 1);
+        }
       }, 100);
+      return () => clearInterval(interval);
     }
-    return () => clearInterval(interval);
-  }, [isActive1]);
-
-  /*   if (isActive2 === true) {
-    interval = setInterval(() => {        
-        if (counter2 === 0) {
-          setCounter2(3)}
-        else 
-         setCounter2((prev) => prev - 1)  */
+  }, [isActive1, amountprint1]);
 
   useEffect(() => {
     while (isActive2) {
@@ -138,31 +130,23 @@ export default function App({ Component, pageProps }) {
         } else {
           setAmountPrint2((prev) => prev - 1);
         }
-      }, 500);
+      }, 200);
       return () => clearInterval(interval);
     }
   }, [isActive2, amountprint2]);
 
-  /*  console.log("mainScope", counter2);
-  console.log((counter2 % 3) + 1); */
-
   useEffect(() => {
-    let interval;
-    if (isActive3 === true) {
-      interval = setInterval(() => {
-        setAmountPrint3(randomIntFromInterval(1, 3));
-      }, 500);
+    while (isActive3) {
+      const interval = setInterval(() => {
+        if (amountprint3 === 1) {
+          setAmountPrint3(3);
+        } else {
+          setAmountPrint3((prev) => prev - 1);
+        }
+      }, 300);
+      return () => clearInterval(interval);
     }
-    return () => clearInterval(interval);
-  }, [isActive3]);
-
-  /*   useEffect(() => {
-    setAmountPrint2((counter2 % 3) + 1);
-  }, [counter2]); */
-
-  //1 -> rest: 2 -> 3
-  //2 -> rest: 1 -> 2
-  //3 -> rest: 0 -> 1
+  }, [isActive3, amountprint3]);
 
   function loosing() {
     if (!checkFruits && !isActive3 && !isActive1 && !isActive2) {
